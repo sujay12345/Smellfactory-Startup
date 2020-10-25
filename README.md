@@ -1,4 +1,11 @@
 # Smellfactory Startup
+
+ 
+ 
+ ![](readmegifs/Project.gif)
+
+
+
  -  Developed a site using Bootstrap4 as the front end and added CSS animations.
   -   Created three SQL Models User, Post And Comment using Django ORM.
   -   Used django with SQLite as backend for local environment and converted it to Postgresql for production environment. 
@@ -17,9 +24,6 @@
 
   -   Footer section consists of the icons which take them to the respective media pages and a donate button which takes them to donate page.
  
- 
- 
- ![](readmegifs/Project.gif)
 
 
 
