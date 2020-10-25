@@ -46,9 +46,6 @@ List of pages the project contains:
   - Logout
 
 
-# Complete Web App Youtube tutorial : <br>
-https://www.youtube.com/watch?v=q1R-aCQs5pw
-
 
 # Try Similar Version Of Site: <br>
 https://smellfactory.herokuapp.com/
