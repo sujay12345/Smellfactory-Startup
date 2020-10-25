@@ -1,0 +1,98 @@
+{% extends "smellfactory/layout.html" %} {% load static %}{% block body %}
+<title>{% block title %} Forum :: Smell Factory{% endblock %}</title>
+
+{% if message %}
+<div id="message">
+
+    <div class="alert alert-{{msg_type}}">{{ message }}
+        <span class="closebtn" onClick="window.location.reload();">&times; </span>
+    </div>
+</div>
+
+{% endif %}
+<div id="message">
+</div>
+<form class="newpost" style="width: 75%;" action="{% url 'newpost' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <h4 class="text-center mx-auto w-75 m-3">Write Blogs and Articles.</h4>
+     
+      <textarea id="task" class="form-control" rows="5" name="content" placeholder="Take a moment to write your experience."></textarea>
+    </div>
+    <button type="submit" id="submit" class="btn btn-dark">Post</button>
+  </form>
+  
+  <h2 class="text-center mx-auto w-75 m-3">Discussion Forum: Write, Comment and Talk.</h2>
+  
+  <div id="allposts">
+    {% for post in allposts %}
+        <div class="card mx-auto w-75 m-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <h3 class="text-center">    {{post.postcreator.username}}</h3>
+                </h5>
+                <p class="card-text">{{ post.content }} </p>
+                   <p></p> <span><small>({{post.timestamp|date:'d M g:i a'}})</small></span>
+                </p>
+                {% if user.is_authenticated %}
+                {% if user in post.likers.all %}
+                    <a class="likelink" data-postid="{{post.pk}}" href="#a">Remove Upvote</a> 
+                {% else %} 
+                    <a class="likelink" data-postid="{{post.pk}}" href="#a">Upvote</a> 
+                {% endif %}
+                {% endif %}
+                {% if value %}
+                <span id="span{{post.pk}}">{{ post.likers.all | length }} </span> {{value}}
+                {% else %}
+                <span id="span{{post.pk}}">{{ post.likers.all | length }} </span> Upvotes
+                {% endif %}
+                <div class="col-sm col">
+                   
+                    <a href="{% url 'viewpost' post.id %}"  class="likelink">View  Comments</a>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if allposts.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ allposts.previous_page_number }}">Previous</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+          {% endif %}
+          
+    
+          {% for n in allposts.paginator.page_range %}
+            {% if allposts.number == n %}
+                <li class="page-item active"><a class="page-link" href="?page={{n}}">{{n}}</a></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{n}}">{{n}}</a></li>
+            {% endif %}
+          {% endfor %}
+    
+          {% if allposts.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ allposts.next_page_number }}">Next</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    <div class="container">
+        <div class="row">
+    <div class="card card-3">
+        <h6>Note:</h6>
+        <p>If you want any more questions to be addressed, please let us know through the forum section. Also, If you want to make a Zoom call with the founder to address and share your experience, well we would love to have one. Let us know through DMs in any of the social media links given below. Thanks again.</p>
+      </div>
+</div>
+</div>
+      {% endblock %}
+
+
+
+ 
