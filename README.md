@@ -9,7 +9,7 @@
  -  Developed a site using Bootstrap4 as the front end and added CSS animations.
   -   Created three SQL Models User, Post And Comment using Django ORM.
      
- ![](readmegifs/shot1.png)
+ ![](readmegifs/shot1.jpg)
   -   Used django with SQLite as backend for local environment and converted it to Postgresql for production environment. 
   -   Deployed it on Microsoft Azure : Created an app service under a resource group and linked it to a postgresql server database. Hosted both of them in WEST US 2 to reduce the latency. 
    
