@@ -19,7 +19,7 @@
  
  
  
- ![GIF](readmegif/Project.gif)
+ ![](readmegifs/Project.gif)
 
 
 
