@@ -1,5 +1,6 @@
-django-heroku
-django
+Django==2.2.13
+psycopg2-binary==2.8.4
+pytz==2018.5
+whitenoise==4.1
 gunicorn==19.9.0
-itsdangerous==1.1.0
 Jinja2==2.10.1
