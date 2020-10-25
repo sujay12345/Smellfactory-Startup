@@ -17,7 +17,14 @@
 
   -   Footer section consists of the icons which take them to the respective media pages and a donate button which takes them to donate page.
  
- List of pages the project contains:
+ 
+ 
+ ![GIF](readmegif/Project.gif)
+
+
+
+
+List of pages the project contains:
 
   - Home
   - Login (/login)
